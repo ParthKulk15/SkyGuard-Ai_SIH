@@ -1,5 +1,7 @@
 import './style.css';
 import { renderSidebar } from './components/sidebar.js';
+import { renderFooter } from './components/footer.js';
+import { showAnomalyToast } from './components/anomalyToast.js';
 
 // Lazy load pages for better structure
 const routes = {
@@ -39,7 +41,7 @@ async function router() {
         <div class="app-container">
           ${renderSidebar(currentRoute)}
           <main class="main-content">
-            ${content}
+            ${content}${renderFooter()}
           </main>
         </div>
       `;
@@ -50,6 +52,7 @@ async function router() {
     
     // Re-bind any necessary events
     bindGlobalEvents();
+    if (isAppRoute) showAnomalyToast();
     
   } catch (err) {
     console.error('Routing error:', err);

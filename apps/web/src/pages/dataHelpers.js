@@ -1,0 +1,1 @@
+export const unwrap=(v,k)=>v?.[k]??v?.data??v?.items??v??[]; export const value=(o,...ks)=>ks.map(k=>o?.[k]).find(v=>v!==undefined&&v!==null); export const formatTime=v=>v?new Date(v).toLocaleString():'—'; export const state=(m,k='loading')=>`<div class="card page-state ${k}">${m}</div>`; export const mode=()=>'<span class="badge badge-live">SIMULATION MODE</span>';
