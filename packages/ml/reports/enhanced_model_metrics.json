@@ -1,0 +1,36 @@
+{
+  "training_rows_original": 46998,
+  "training_rows_augmented": 51748,
+  "synthetic_training_rows": 4750,
+  "augmentation_counts": {
+    "COMMUNICATION_FAILURE": 400,
+    "DATA_CORRUPTION": 400,
+    "DUPLICATE_PACKET": 400,
+    "SIMULTANEOUS_SENSOR_FAILURE": 400,
+    "TEMPERATURE_SPIKE": 300,
+    "PRESSURE_SPIKE": 300,
+    "HUMIDITY_SPIKE": 300,
+    "TEMPERATURE_FROZEN": 250,
+    "PRESSURE_FROZEN": 250,
+    "HUMIDITY_FROZEN": 250,
+    "TEMPERATURE_BIAS": 250,
+    "PRESSURE_BIAS": 250,
+    "HUMIDITY_BIAS": 250,
+    "TEMPERATURE_DRIFT": 250,
+    "PRESSURE_DRIFT": 250,
+    "HUMIDITY_DRIFT": 250
+  },
+  "held_out_test_rows": 8298,
+  "metrics": {
+    "precision": 1.0,
+    "recall": 0.9411764705882353,
+    "f1": 0.9696969696969697,
+    "fpr": 0.0,
+    "tpr": 0.9411764705882353,
+    "accuracy": 0.9992769342010123,
+    "tn": 8196,
+    "fp": 0,
+    "fn": 6,
+    "tp": 96
+  }
+}

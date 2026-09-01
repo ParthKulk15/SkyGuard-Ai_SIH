@@ -1,0 +1,15 @@
+{
+  "name": "skyguard-ai",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "start": "npm run web:dev",
+    "setup:web": "npm --prefix apps/web install",
+    "web:dev": "npm --prefix apps/web run dev --",
+    "web:build": "npm --prefix apps/web run build --",
+    "web:preview": "npm --prefix apps/web run preview --"
+  }
+}

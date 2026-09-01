@@ -1,0 +1,62 @@
+{
+  "selection_rule": "highest validation F1 among deployable (< 1 KB estimated) decision trees",
+  "chosen": {
+    "candidate": "decision_tree_depth_5",
+    "precision": 0.8862,
+    "recall": 0.7124,
+    "f1": 0.7899,
+    "roc_auc": 0.8498,
+    "nodes": 37,
+    "estimated_model_bytes": 740
+  },
+  "candidates": [
+    {
+      "candidate": "logistic_regression",
+      "precision": 0.0862,
+      "recall": 0.6209,
+      "f1": 0.1513,
+      "roc_auc": 0.7739,
+      "nodes": null,
+      "estimated_model_bytes": 0
+    },
+    {
+      "candidate": "decision_tree_depth_3",
+      "precision": 0.6875,
+      "recall": 0.719,
+      "f1": 0.7029,
+      "roc_auc": 0.8535,
+      "nodes": 15,
+      "estimated_model_bytes": 300
+    },
+    {
+      "candidate": "decision_tree_depth_4",
+      "precision": 0.7586,
+      "recall": 0.719,
+      "f1": 0.7383,
+      "roc_auc": 0.8555,
+      "nodes": 25,
+      "estimated_model_bytes": 500
+    },
+    {
+      "candidate": "decision_tree_depth_5",
+      "precision": 0.8862,
+      "recall": 0.7124,
+      "f1": 0.7899,
+      "roc_auc": 0.8498,
+      "nodes": 37,
+      "estimated_model_bytes": 740
+    },
+    {
+      "candidate": "decision_tree_depth_6",
+      "precision": 0.8651,
+      "recall": 0.7124,
+      "f1": 0.7814,
+      "roc_auc": 0.8509,
+      "nodes": 45,
+      "estimated_model_bytes": 900
+    }
+  ],
+  "generated_header_bytes": 1819,
+  "working_ram_bytes": 124,
+  "assumptions": "model arrays are flash-resident constants; values are approximate"
+}

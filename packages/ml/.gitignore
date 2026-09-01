@@ -1,0 +1,13 @@
+# Local Python environments and generated interpreter state
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local editor and operating-system files
+.DS_Store
+.vscode/
+.idea/
+
+# Duplicate of pc_anomaly_training.csv; retain the canonical file only.
+fault_classification.csv

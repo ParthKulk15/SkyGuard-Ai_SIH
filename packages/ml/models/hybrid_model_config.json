@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0-hybrid-operational",
+  "trained_at_utc": "2026-08-31T08:34:35.571469+00:00",
+  "training_rows": 22464,
+  "normal_training_rows": 21018,
+  "stations": [
+    "AWS001",
+    "AWS002",
+    "AWS003",
+    "AWS004",
+    "AWS005",
+    "AWS006"
+  ],
+  "training_end": "2026-05-13 23:55:00",
+  "config": {
+    "joint_profile_z_threshold": 3.5,
+    "joint_residual_threshold": 8.0
+  }
+}

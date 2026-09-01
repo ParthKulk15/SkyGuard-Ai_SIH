@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0-production-sih",
+  "fusion_weights": {
+    "w_baseline": 0.4,
+    "w_iforest": 0.35,
+    "w_autoencoder": 0.25
+  },
+  "decision_threshold": 0.45,
+  "spatial_penalty": 0.2,
+  "spatial_credit": -0.25
+}
