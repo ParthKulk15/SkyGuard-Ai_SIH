@@ -1,0 +1,1 @@
+export function renderFooter(){return `<footer class="app-footer"><span>© 2026 SkyGuard AI</span><span>AI/ML-Based Intelligent Anomaly Detection for Automatic Weather Stations</span><span class="badge badge-live">SIMULATION MODE</span><span>SIH 2026 Prototype</span></footer>`;}

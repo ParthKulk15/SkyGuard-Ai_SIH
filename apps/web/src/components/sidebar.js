@@ -5,10 +5,8 @@ export function renderSidebar(currentRoute) {
     { id: 'dashboard', label: 'Overview', icon: 'overview', href: '#/dashboard' },
     { id: 'monitoring', label: 'Live Monitoring', icon: 'monitoring', href: '#/monitoring' },
     { id: 'weather', label: 'Weather', icon: 'weather', href: '#/weather' },
-    { id: 'alerts', label: 'Alerts', icon: 'alerts', href: '#/dashboard' },
     { id: 'diagnostics', label: 'Diagnostics', icon: 'diagnostics', href: '#/dashboard' },
     { id: 'analytics', label: 'Analytics', icon: 'analytics', href: '#/dashboard' },
-    { id: 'reports', label: 'Reports', icon: 'reports', href: '#/dashboard' },
     { id: 'maintenance', label: 'Maintenance', icon: 'maintenance', href: '#/maintenance' },
     { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings' }
   ];
