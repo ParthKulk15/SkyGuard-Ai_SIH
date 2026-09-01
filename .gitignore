@@ -18,6 +18,25 @@ logs/
 .env.*
 !.env.example
 
+# Secrets and credentials
+.npmrc
+.pypirc
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*secret*
+*secrets*
+*credential*
+*credentials*
+*token*
+service-account*.json
+firebase-adminsdk*.json
+google-application-credentials*.json
+
 # Tooling
 .pytest_cache/
 .mypy_cache/
