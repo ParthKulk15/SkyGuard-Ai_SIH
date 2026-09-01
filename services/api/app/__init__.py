@@ -1,0 +1,1 @@
+"""SkyGuard API application."""
