@@ -2,6 +2,7 @@ import './style.css';
 import { renderSidebar } from './components/sidebar.js';
 import { renderFooter } from './components/footer.js';
 import { showAnomalyToast } from './components/anomalyToast.js';
+import { mountAntigravity } from './components/antigravity.js';
 
 // Lazy load pages for better structure
 const routes = {
@@ -17,7 +18,8 @@ const routes = {
 const app = document.getElementById('app');
 
 async function router() {
-  const path = window.location.hash.slice(1) || '/';
+  const hash = window.location.hash.slice(1) || '/';
+  const path = hash.split('?')[0];
   
   // Clean up body classes
   document.body.className = '';
@@ -30,6 +32,9 @@ async function router() {
     }
 
     const content = await routeHandler();
+
+    document.querySelectorAll('[data-antigravity]').forEach((field) => field._antigravityCleanup?.());
+    window.clearInterval(window.__skyguardTypewriter);
     
     // Check if it's an app route (needs sidebar)
     const isAppRoute = ['/dashboard', '/monitoring', '/weather', '/maintenance', '/settings'].includes(path);
@@ -61,8 +66,47 @@ async function router() {
 }
 
 function bindGlobalEvents() {
-  // Simple global event delegation if needed
+  document.querySelectorAll('[data-login-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const modal = document.querySelector('[data-login-modal]');
+      if (!modal) return;
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      modal.querySelector('input')?.focus();
+    });
+  });
+  document.querySelectorAll('[data-login-close]').forEach((button) => button.addEventListener('click', closeLogin));
+  document.querySelector('[data-login-modal]')?.addEventListener('click', (event) => {
+    if (event.target === event.currentTarget) closeLogin();
+  });
+  document.querySelector('.login-form')?.addEventListener('submit', (event) => {
+    event.preventDefault();
+    closeLogin();
+    window.location.hash = '/dashboard';
+  });
+  document.querySelectorAll('[data-antigravity]').forEach(mountAntigravity);
+  const typewriter = document.querySelector('[data-typewriter]');
+  if (typewriter) {
+    let index = 0;
+    window.clearInterval(window.__skyguardTypewriter);
+    window.__skyguardTypewriter = window.setInterval(() => {
+      typewriter.textContent = typewriter.dataset.typewriter.slice(0, index);
+      index += 1;
+      if (index > typewriter.dataset.typewriter.length) window.clearInterval(window.__skyguardTypewriter);
+    }, 62);
+  }
 }
+
+function closeLogin() {
+  const modal = document.querySelector('[data-login-modal]');
+  if (!modal) return;
+  modal.hidden = true;
+  document.body.classList.remove('modal-open');
+}
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeLogin();
+});
 
 // Initial load
 window.addEventListener('hashchange', router);

@@ -1,6 +1,20 @@
 import { icons } from '../components/icons.js';
 
-export function renderLogin() {
+export function renderLogin(isModal = false) {
+  if (isModal) return `
+    <div class="login-backdrop" data-login-modal hidden>
+      <section class="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <button class="modal-close" type="button" data-login-close aria-label="Close login">&times;</button>
+        <div class="login-modal-header"><span class="login-symbol">${icons.shield}</span><p class="eyebrow">SkyGuard-AI access</p><h2 id="login-title">Welcome back</h2><p>Sign in to continue monitoring your systems.</p></div>
+        <form class="login-form">
+          <label>Email<input type="email" placeholder="you@company.com" required></label>
+          <label>Password<input type="password" placeholder="Enter your password" required></label>
+          <div class="login-options"><label class="remember"><input type="checkbox"> Remember me</label><a href="#">Forgot password?</a></div>
+          <button type="submit" class="btn btn-primary login-submit">Sign in ${icons.chevronRight}</button>
+        </form>
+      </section>
+    </div>`;
+
   return `
     <div style="min-height: 100vh; background-color: var(--bg-base); display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;">
       <div class="bg-topo"></div>

@@ -4,5 +4,5 @@ export async function downloadReport() { const response = await fetch(`${API_BAS
 export const getOverview = () => apiGet('/v1/overview');
 export const getStations = () => apiGet('/v1/stations');
 export const getStation = id => apiGet(`/v1/stations/${encodeURIComponent(id)}`);
-export const getWeather = (id, range) => apiGet(`/v1/weather?station_id=${encodeURIComponent(id)}&range=${encodeURIComponent(range)}`);
+export const getWeather = (id, hours = 24) => apiGet(`/v1/weather?station_id=${encodeURIComponent(id)}&hours=${encodeURIComponent(String(hours).replace(/\D/g, '') || '24')}`);
 export const getAnomalies = () => apiGet('/v1/anomalies');
