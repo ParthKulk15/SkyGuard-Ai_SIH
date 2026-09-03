@@ -84,6 +84,11 @@ function bindGlobalEvents() {
     closeLogin();
     window.location.hash = '/dashboard';
   });
+  document.querySelectorAll('[data-logout]').forEach((button) => {
+    button.addEventListener('click', () => {
+      window.location.hash = '/';
+    });
+  });
   document.querySelectorAll('[data-antigravity]').forEach(mountAntigravity);
   const typewriter = document.querySelector('[data-typewriter]');
   if (typewriter) {
