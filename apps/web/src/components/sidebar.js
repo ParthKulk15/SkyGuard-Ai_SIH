@@ -5,8 +5,6 @@ export function renderSidebar(currentRoute) {
     { id: 'dashboard', label: 'Overview', icon: 'overview', href: '#/dashboard' },
     { id: 'monitoring', label: 'Live Monitoring', icon: 'monitoring', href: '#/monitoring' },
     { id: 'weather', label: 'Weather', icon: 'weather', href: '#/weather' },
-    { id: 'diagnostics', label: 'Diagnostics', icon: 'diagnostics', href: '#/dashboard' },
-    { id: 'analytics', label: 'Analytics', icon: 'analytics', href: '#/dashboard' },
     { id: 'maintenance', label: 'Maintenance', icon: 'maintenance', href: '#/maintenance' },
     { id: 'settings', label: 'Settings', icon: 'settings', href: '#/settings' }
   ];
@@ -42,6 +40,10 @@ export function renderSidebar(currentRoute) {
           </div>
           <div class="nav-icon" style="margin-left: auto;">${icons.chevronDown}</div>
         </div>
+        <button type="button" class="logout-button" data-logout>
+          <span class="nav-icon">${icons.logout}</span>
+          Log out
+        </button>
       </div>
     </aside>
   `;
