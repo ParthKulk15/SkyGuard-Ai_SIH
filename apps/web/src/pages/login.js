@@ -42,7 +42,7 @@ export function renderLogin(isModal = false) {
         </div>
 
         <!-- Form -->
-        <form style="background: transparent;">
+        <form class="login-form" style="background: transparent;">
           <div style="position: relative; margin-bottom: 2rem;">
             <div style="position: absolute; left: 0; top: 12px; color: var(--text-secondary); width: 20px;">
               ${icons.user}
@@ -69,11 +69,10 @@ export function renderLogin(isModal = false) {
             <a href="#" style="color: var(--color-secondary); text-decoration: none; font-weight: 500;">Forgot password?</a>
           </div>
 
-          <!-- Changed link to a button-styled anchor for routing to dashboard -->
-          <a href="#/dashboard" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; justify-content: center; border-radius: var(--radius-full); box-shadow: 0 10px 20px rgba(21, 50, 38, 0.15);">
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; justify-content: center; border-radius: var(--radius-full); box-shadow: 0 10px 20px rgba(21, 50, 38, 0.15);">
             Sign In
             <span style="width: 20px; margin-left: 0.5rem;">${icons.chevronRight}</span>
-          </a>
+          </button>
         </form>
 
         <div style="text-align: center; margin-top: 2.5rem; position: relative;">
