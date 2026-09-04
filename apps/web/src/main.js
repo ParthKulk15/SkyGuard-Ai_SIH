@@ -20,6 +20,7 @@ const app = document.getElementById('app');
 async function router() {
   const hash = window.location.hash.slice(1) || '/';
   const path = hash.split('?')[0];
+  const isAppRoute = ['/dashboard', '/monitoring', '/weather', '/maintenance', '/settings'].includes(path);
   
   // Clean up body classes
   document.body.className = '';
@@ -31,13 +32,23 @@ async function router() {
       return;
     }
 
+    // Render the application frame immediately while page data loads.
+    if (isAppRoute) {
+      const currentRoute = path.slice(1);
+      app.innerHTML = `
+        <div class="app-container">
+          ${renderSidebar(currentRoute)}
+          <main class="main-content">
+            <div class="page-loading" aria-live="polite">Loading...</div>
+          </main>
+        </div>
+      `;
+    }
+
     const content = await routeHandler();
 
     document.querySelectorAll('[data-antigravity]').forEach((field) => field._antigravityCleanup?.());
     window.clearInterval(window.__skyguardTypewriter);
-    
-    // Check if it's an app route (needs sidebar)
-    const isAppRoute = ['/dashboard', '/monitoring', '/weather', '/maintenance', '/settings'].includes(path);
     
     if (isAppRoute) {
       // Extract route name for active state (e.g., /dashboard -> dashboard)
@@ -82,11 +93,14 @@ function bindGlobalEvents() {
   document.querySelector('.login-form')?.addEventListener('submit', (event) => {
     event.preventDefault();
     closeLogin();
-    window.location.hash = '/dashboard';
+    // Replace the public page in history so Back does not return to landing.
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#/dashboard`);
+    router();
   });
   document.querySelectorAll('[data-logout]').forEach((button) => {
     button.addEventListener('click', () => {
-      window.location.hash = '/';
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#/`);
+      router();
     });
   });
   document.querySelectorAll('[data-antigravity]').forEach(mountAntigravity);

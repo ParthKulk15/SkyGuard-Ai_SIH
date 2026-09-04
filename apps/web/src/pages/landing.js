@@ -16,7 +16,23 @@ export function renderLanding() {
 
       <main>
         <section class="hero hero-minimal">
-          <div class="hero-particle-layer">${renderAntigravity({ count: 300, magnetRadius: 6, ringRadius: 7, waveSpeed: 0.4, waveAmplitude: 1, particleSize: 1.5, lerpSpeed: 0.05, color: '#3300ff', autoAnimate: true, particleVariance: 1 })}</div>
+          <div class="hero-particle-layer">${renderAntigravity({
+            count: 300,
+            magnetRadius: 6,
+            ringRadius: 7,
+            waveSpeed: 0.4,
+            waveAmplitude: 1,
+            particleSize: 1.0,
+            lerpSpeed: 0.15,
+            color: '#5227FF',
+            autoAnimate: true,
+            particleVariance: 1,
+            rotationSpeed: 0,
+            depthFactor: 1,
+            pulseSpeed: 3,
+            particleShape: 'capsule',
+            fieldStrength: 10
+          })}</div>
           <div class="hero-center">
             <p class="hero-kicker">Autonomous intelligence for resilient skies</p>
             <h1>SkyGuard-AI</h1>
